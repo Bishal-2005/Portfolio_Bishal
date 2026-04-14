@@ -1,0 +1,894 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bishal Parida | Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+
+    <style>
+        /* =======================
+   HERO BACKGROUND
+======================= */
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+        }
+
+        /* =======================
+   HOVER EFFECTS
+======================= */
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        /* =======================
+   NAV LINK UNDERLINE
+======================= */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* =======================
+   LIGHT MODE DEFAULT
+======================= */
+        body {
+            background: #f9fafb;
+            color: #1f2933;
+        }
+
+        /* =======================
+   DARK MODE
+======================= */
+        body.dark {
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+
+        /* Sections & Cards */
+        body.dark .bg-white {
+            background: #1e293b !important;
+        }
+
+        body.dark .bg-gray-50 {
+            background: #0f172a !important;
+        }
+
+        /* Text Colors */
+        body.dark .text-gray-600,
+        body.dark .text-gray-700,
+        body.dark .text-gray-800 {
+            color: #cbd5f5 !important;
+        }
+
+        /* =======================
+   INPUTS & PLACEHOLDERS
+======================= */
+        body.dark input,
+        body.dark textarea {
+            background: #ffffff !important;
+            color: #0f172a !important;
+        }
+
+        body.dark input::placeholder,
+        body.dark textarea::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        /* =======================
+   NAVBAR DARK
+======================= */
+        body.dark nav {
+            background: #020617 !important;
+        }
+
+        body.dark .nav-link {
+            color: #cbd5f5 !important;
+        }
+
+        /* =======================
+   TOGGLE ICON COLOR
+======================= */
+        #themeToggle i {
+            color: #1f2933;
+        }
+
+        body.dark #themeToggle i {
+            color: #ffffff;
+        }
+
+        /* Toggle button background */
+        body.dark #themeToggle {
+            background: #334155 !important;
+        }
+
+        /* Toggle icon visible in both modes */
+        #themeIcon {
+            color: #1f2933;
+        }
+
+        body.dark #themeIcon {
+            color: #ffffff;
+        }
+    </style>
+
+
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#home" class="text-xl font-bold text-blue-600">Bishal.dev</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#work" class="nav-link text-gray-700 hover:text-blue-600">Work</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+                    <button id="themeToggle"
+                        class="ml-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700">
+                        <i id="themeIcon" data-feather="moon" class="w-5 h-5"></i>
+                    </button>
+
+
+
+                </div>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button class="text-gray-700">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white pt-32 pb-20" data-aos="fade">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-300">Bishal
+                            Parida</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Software Engineering Student | Full Stack Python
+                        Developer</h2>
+                    <p class="text-lg mb-8 text-blue-100">I build scalable and user-friendly web applications using
+                        Python and Django.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">Get
+                            in Touch</a>
+                        <a href="/media/Document/resumee finalggg.pdf" target="_blank"
+                            class="border border-white hover:bg-white hover:text-blue-900 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                            View Resume
+                        </a>
+
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <div
+                        class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-300 shadow-xl">
+                        <img src="{% static 'images/logo.png' %}" alt="Bishal Parida"
+                            class="w-full h-full object-cover">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Heading -->
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade">
+                About Me
+            </h2>
+
+            <div class="md:flex md:items-center">
+
+                <!-- Left Image -->
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="{% static 'images/abouttt.png' %}"
+                        alt="Bishal Parida - Software Engineering Student and Full Stack Python Developer"
+                        class="rounded-xl shadow-xl w-full object-cover">
+                </div>
+
+                <!-- Right Content -->
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+
+                    <!-- Name -->
+                    <h3 class="text-2xl font-semibold mb-4">
+                        Hello, I'm <span class="font-bold">Bishal Parida</span>
+                    </h3>
+
+                    <!-- Intro -->
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        I am a Software Engineering student specializing in Full Stack Python development, with a strong
+                        interest in building scalable web applications and exploring AI/ML technologies. I enjoy
+                        transforming real-world problems into efficient, user-friendly digital solutions using Python,
+                        Django, HTML, CSS, and JavaScript.
+                    </p>
+
+                    <!-- Tech Stack -->
+                    <p class="font-medium mb-6">
+                        <span class="text-blue-600 font-semibold">Tech Stack:</span>
+                        Python | Django | HTML | CSS | JavaScript | MySQL
+                    </p>
+
+                    <!-- Highlights -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i data-feather="zap" class="text-blue-600"></i>
+                            </div>
+                            <span>Strong problem-solving and debugging skills</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i data-feather="code" class="text-blue-600"></i>
+                            </div>
+                            <span>Experience building real-world projects</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i data-feather="book-open" class="text-blue-600"></i>
+                            </div>
+                            <span>Passionate about learning modern technologies</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i data-feather="users" class="text-blue-600"></i>
+                            </div>
+                            <span>Collaborative and reliable team player</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Career Goal -->
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        My goal is to secure an internship or entry-level role where I can apply my skills, gain
+                        industry
+                        experience, and contribute to impactful software projects.
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-wrap gap-4">
+
+                        <a href="#work"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-lg font-medium transition duration-300">
+                            View Projects
+                        </a>
+
+                        <a href="/media/documents/Bishal_Parida_CV.pdf" target="_blank"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-lg font-medium transition duration-300">
+                            View Resume
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certifications & Achievements -->
+    <section id="certificates" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Certifications & Achievements
+            </h2>
+
+            <div class="relative overflow-hidden">
+
+                <!-- Slider -->
+                <div id="certSlider" class="flex transition-transform duration-500">
+
+                    <!-- Slide 1 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/cert1.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Python Certification</h3>
+                            <p class="text-gray-600">Coursera</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/cert2.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
+                            <p class="text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/cert3.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
+                            <p class="text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/logo.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
+                            <p class="text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/logo.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
+                            <p class="text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/logo.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
+                            <p class="text-gray-600">Udemy</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="min-w-full md:min-w-[33.33%] p-4">
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                            <img src="{% static 'images/cert3.png' %}" class="w-full h-48 object-cover rounded mb-4">
+                            <h3 class="font-semibold text-lg">Hackathon Participation</h3>
+                            <p class="text-gray-600">College Event</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Buttons -->
+                <button onclick="prevCert()"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full">
+                    ‹
+                </button>
+
+                <button onclick="nextCert()"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full">
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Heading -->
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade">
+                Technical Skills
+            </h2>
+
+            <!-- Skill Cards -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+
+                <!-- Full Stack Python -->
+                <div class="skill-card bg-white p-8 rounded-xl shadow-md transition duration-300" data-aos="fade-up">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="code" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Full Stack Python Development</h3>
+                    <p class="text-gray-600">
+                        Building dynamic and scalable web applications using Python, Django, HTML, CSS, JavaScript, and
+                        MySQL.
+                        Focused on clean code, backend logic, and responsive UI.
+                    </p>
+                </div>
+
+                <!-- Frontend -->
+                <div class="skill-card bg-white p-8 rounded-xl shadow-md transition duration-300" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="layout" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Frontend Development</h3>
+                    <p class="text-gray-600">
+                        Creating responsive and user-friendly interfaces using HTML, CSS, and JavaScript
+                        with modern UI practices for better user experience.
+                    </p>
+                </div>
+
+                <!-- Backend & Database -->
+                <div class="skill-card bg-white p-8 rounded-xl shadow-md transition duration-300" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="database" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Backend & Database</h3>
+                    <p class="text-gray-600">
+                        Designing backend systems, REST APIs, and database structures using Django and MySQL
+                        for real-world web applications.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Education -->
+            <div data-aos="fade-up" class="max-w-3xl mx-auto">
+
+                <h3 class="text-2xl font-semibold mb-6 text-center">Education</h3>
+
+                <div class="space-y-6">
+
+                    <!-- B.Tech -->
+                    <div class="border-l-4 border-blue-500 pl-6 py-2">
+                        <h4 class="font-medium">2025 - Present</h4>
+                        <p class="text-gray-600">
+                            3rd Year Computer Science Student at REC College – Building a strong foundation in
+                            technology and programming
+                        </p>
+                    </div>
+
+                    <!-- +2 -->
+                    <div class="border-l-4 border-blue-500 pl-6 py-2">
+                        <h4 class="font-medium">2021 - 2023</h4>
+                        <p class="text-gray-600">
+                            Completed +2 at Swadhin Residential College (Secured 80%) – Excelled in academics with a
+                            focus on science and technology
+                        </p>
+                    </div>
+
+                    <!-- 10th -->
+                    <div class="border-l-4 border-blue-500 pl-6 py-2">
+                        <h4 class="font-medium">2021</h4>
+                        <p class="text-gray-600">
+                            Completed 10th at SSVM (Secured 76%) – Developed a strong academic foundation in core
+                            subjects
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade">
+                My Services
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Web Development -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300 hover:shadow-xl"
+                    data-aos="fade-up">
+                    <div class="h-48 bg-blue-600 flex items-center justify-center">
+                        <i data-feather="layout" class="text-white w-12 h-12"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            I build responsive and modern websites using HTML, CSS, JavaScript, Python, and Django,
+                            focusing on performance, clean code, and usability.
+                        </p>
+                        <a href="#contact" class="text-blue-600 font-medium flex items-center">
+                            Contact Me <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300 hover:shadow-xl"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-blue-600 flex items-center justify-center">
+                        <i data-feather="database" class="text-white w-12 h-12"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-semibold mb-3">Backend Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            I develop secure backend systems, REST APIs, and database-driven applications
+                            using Django and MySQL for real-world use cases.
+                        </p>
+                        <a href="#contact" class="text-blue-600 font-medium flex items-center">
+                            Contact Me <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Full Stack Python -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300 hover:shadow-xl"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-blue-600 flex items-center justify-center">
+                        <i data-feather="code" class="text-white w-12 h-12"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-semibold mb-3">Full Stack Python Solutions</h3>
+                        <p class="text-gray-600 mb-6">
+                            I create complete web applications from frontend to backend, including authentication,
+                            dashboards, CRUD operations, and deployment-ready systems.
+                        </p>
+                        <a href="#contact" class="text-blue-600 font-medium flex items-center">
+                            Contact Me <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Work / Projects Section -->
+    <section id="work" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade">
+                My Work
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Smart City Incident Reporter -->
+                <div class="relative rounded-xl overflow-hidden shadow-md" data-aos="fade-up">
+                    <img src="{% static 'images/cityproject1.png' %}" alt="Smart City Incident Reporter"
+                        class="w-full h-64 object-cover">
+
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-xl font-semibold mb-2">
+                                Smart City Incident Reporter
+                            </h3>
+                            <p class="text-gray-300 mb-4">
+                                Django-based web app for reporting and tracking city issues.
+                            </p>
+
+                            <div class="flex justify-center space-x-4">
+                                <a href="https://github.com/Bishal-2005" target="_blank"
+                                    class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium">
+                                    GitHub
+                                </a>
+
+                                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium">
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ShadowOps Project -->
+                <div class="relative rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <img src="{% static 'images/shadwoops.png' %}" alt="ShadowOps Project"
+                        class="w-full h-64 object-cover">
+
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-xl font-semibold mb-2">
+                                ShadowOps
+                            </h3>
+                            <p class="text-gray-300 mb-4">
+                                Full Stack Python project for managing operations and workflows.
+                            </p>
+
+                            <div class="flex justify-center space-x-4">
+                                <a href="https://github.com/Bishal-2005" target="_blank"
+                                    class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium">
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Money Manager Web App -->
+                <div class="relative rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{% static 'images/money.png' %}" alt="Money Manager Web App"
+                        class="w-full h-64 object-cover">
+
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                        <div class="text-center p-6">
+                            <h3 class="text-white text-xl font-semibold mb-2">
+                                Money Manager Web App
+                            </h3>
+                            <p class="text-gray-300 mb-4">
+                                Web application to track income, expenses, and savings.
+                            </p>
+
+                            <div class="flex justify-center space-x-4">
+                                <a href="https://github.com/Bishal-2005" target="_blank"
+                                    class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium">
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GitHub Profile Button -->
+            <div class="text-center mt-12" data-aos="fade">
+                <a href="https://github.com/Bishal-2005" target="_blank"
+                    class="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                    View GitHub Profile
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade">Contact Me</h2>
+
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="mail" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Email</h3>
+                                <p class="text-gray-600">bishalparida9777@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="linkedin" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">LinkedIn</h3>
+                                <p class="text-gray-600">www.linkedin.com/in/bishalparida-cse</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="github" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">GitHub</h3>
+                                <p class="text-gray-600">https://github.com/Bishal-2005</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="phone" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Phone</h3>
+                                <p class="text-gray-600">9692240143</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <a href="/media/Document/resumee finalggg.pdf" download
+                                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">Download
+                                Resume</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <form method="POST" class="space-y-6">
+                        {% csrf_token %}
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                            <input type="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                            <textarea name="message" rows="4" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
+                            Submit
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center">
+
+                <!-- Brand -->
+                <h2 class="text-2xl font-bold mb-3">
+                    Bishal.dev
+                </h2>
+
+                <p class="text-gray-400 mb-8">
+                    Full Stack Python Developer | Building scalable and user-friendly web applications
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mb-8">
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/Bishal-2005" target="_blank"
+                        class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="github"></i>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/bishalparida-cse" target="_blank"
+                        class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="linkedin"></i>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:bishalparida9777@gmail.com"
+                        class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="mail"></i>
+                    </a>
+
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-gray-500 text-sm">
+                    © 2025 Bishal Parida. Made with
+                    <i data-feather="heart" class="w-4 h-4 inline text-red-500"></i>
+                    using Django & Tailwind CSS
+                </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        /* =======================
+           AOS ANIMATION
+        ======================= */
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        /* =======================
+           FEATHER ICONS
+        ======================= */
+        feather.replace();
+
+        /* =======================
+           VANTA BACKGROUND
+        ======================= */
+        VANTA.GLOBE({
+            el: "#home",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200,
+            minWidth: 200,
+            scale: 1,
+            scaleMobile: 1,
+            color: 0x3b82f6,
+            backgroundColor: 0x1e3a8a,
+            size: 0.8
+        });
+
+        /* =======================
+           DARK / LIGHT MODE
+        ======================= */
+        const toggleBtn = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+
+        /* Load saved theme */
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            themeIcon.setAttribute("data-feather", "sun");
+        } else {
+            themeIcon.setAttribute("data-feather", "moon");
+        }
+
+        feather.replace();
+
+        /* Toggle theme */
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                themeIcon.setAttribute("data-feather", "sun");
+            } else {
+                localStorage.setItem("theme", "light");
+                themeIcon.setAttribute("data-feather", "moon");
+            }
+
+            feather.replace();
+        });
+        let certIndex = 0;
+        const certSlider = document.getElementById("certSlider");
+
+        function showCertSlide() {
+            certSlider.style.transform = `translateX(-${certIndex * 33.33}%)`;
+        }
+
+        function nextCert() {
+            certIndex++;
+            if (certIndex > 2) certIndex = 0;
+            showCertSlide();
+        }
+
+        function prevCert() {
+            certIndex--;
+            if (certIndex < 0) certIndex = 2;
+            showCertSlide();
+        }
+
+        /* Auto Slide */
+        setInterval(() => {
+            nextCert();
+        }, 3000);
+    </script>
+
+</body>
