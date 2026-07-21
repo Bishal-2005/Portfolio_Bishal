@@ -7,12 +7,14 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+# SECURITY
+
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
     "django-insecure-@q^^7g&)me7_iebgzr^7g59+h+h8_xrkk57z-n*z(wrn0%x(qm"
 )
 
-# Local me DEBUG=True rahega, Render me environment variable se False kar sakte ho
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = [
@@ -22,7 +24,7 @@ ALLOWED_HOSTS = [
 ]
 
 
-# Application definition
+# APPLICATIONS
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,8 +38,13 @@ INSTALLED_APPS = [
 ]
 
 
+# MIDDLEWARE
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # WhiteNoise
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,11 +58,15 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'protofolio.urls'
 
 
+# TEMPLATES
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
 
-        'DIRS': [BASE_DIR / 'anonymous/templates'],
+        'DIRS': [
+            BASE_DIR / 'anonymous/templates'
+        ],
 
         'APP_DIRS': True,
 
@@ -73,7 +84,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'protofolio.wsgi.application'
 
 
-# Database
+# DATABASE
 
 DATABASES = {
     'default': {
@@ -82,6 +93,8 @@ DATABASES = {
     }
 }
 
+
+# PASSWORDS
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -99,6 +112,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# INTERNATIONALIZATION
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -108,7 +123,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static Files
+# STATIC FILES
 
 STATIC_URL = '/static/'
 
@@ -118,8 +133,14 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
-# Media Files
+
+# MEDIA FILES
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
