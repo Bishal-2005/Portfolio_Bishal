@@ -3,15 +3,23 @@ Django settings for protofolio project.
 """
 
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-@q^^7g&)me7_iebgzr^7g59+h+h8_xrkk57z-n*z(wrn0%x(qm'
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-@q^^7g&)me7_iebgzr^7g59+h+h8_xrkk57z-n*z(wrn0%x(qm"
+)
 
-# Development
-DEBUG = True
+# Local me DEBUG=True rahega, Render me environment variable se False kar sakte ho
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "portfolio-bishal.onrender.com",
+]
 
 
 # Application definition
@@ -100,15 +108,20 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
+# Static Files
+
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-MEDIA_URL = '/media/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+
+# Media Files
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
