@@ -135,6 +135,58 @@
         body.dark #themeIcon {
             color: #ffffff;
         }
+
+        /* PDF embed styling */
+        #certSlider .cursor-pointer {
+            transition: transform 0.2s ease;
+        }
+
+        #certSlider .cursor-pointer:hover {
+            transform: scale(1.03);
+        }
+
+        #certSlider embed {
+            pointer-events: none;
+            /* Prevents PDF from capturing clicks */
+        }
+
+        #pdfEmbed {
+            border: none;
+        }
+
+        /* Ensure PDF preview looks good */
+        #pdfPreviewContainer {
+            background: #f3f4f6;
+        }
+
+        /* Dark mode compatibility */
+        body.dark #certificates .bg-gray-50 {
+            background: #1e293b !important;
+        }
+
+        body.dark #certificates .text-gray-600 {
+            color: #cbd5f5 !important;
+        }
+
+        body.dark #certificates .border-gray-300 {
+            border-color: #475569 !important;
+        }
+
+        body.dark #pdfModal .bg-white {
+            background: #1e293b !important;
+        }
+
+        body.dark #pdfModal .bg-gray-100 {
+            background: #0f172a !important;
+        }
+
+        body.dark #pdfModal .text-gray-500 {
+            color: #94a3b8 !important;
+        }
+
+        body.dark #pdfModal .text-gray-600 {
+            color: #e2e8f0 !important;
+        }
     </style>
 
 
@@ -295,7 +347,7 @@
                             View Projects
                         </a>
 
-                        <a href="/media/documents/Bishal_Parida_CV.pdf" target="_blank"
+                        <a href="/media/Document/resumee finalggg.pdf" target="_blank"
                             class="bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-lg font-medium transition duration-300">
                             View Resume
                         </a>
@@ -307,6 +359,7 @@
         </div>
     </section>
     <!-- Certifications & Achievements -->
+    <!-- Certifications & Achievements - PDF Embedded Section -->
     <section id="certificates" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -319,75 +372,76 @@
                 <!-- Slider -->
                 <div id="certSlider" class="flex transition-transform duration-500">
 
-                    <!-- Slide 1 -->
+                    <!-- Slide 1 : PDF Embedded -->
                     <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/cert1.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Python Certification</h3>
-                            <p class="text-gray-600">Coursera</p>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center cursor-pointer"
+                            onclick="openModal('cert1')">
+                            <div class="relative h-64 bg-white rounded border border-gray-300 overflow-hidden">
+                                <!-- PDF Embed from pdf folder -->
+                                <embed src="{% static 'pdf/python_certificate.pdf' %}" type="application/pdf"
+                                    class="w-full h-full object-contain" style="pointer-events: none;">
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 hover:bg-opacity-30 transition rounded">
+                                    <span
+                                        class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Click
+                                        to View Full PDF</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mt-2">Python Certification</h3>
+                            <p class="text-gray-600">SEEREE</p>
                         </div>
                     </div>
 
-                    <!-- Slide 2 -->
+                    <!-- Slide 2 : PDF Embedded -->
                     <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/cert2.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
-                            <p class="text-gray-600">Udemy</p>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/cert3.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
-                            <p class="text-gray-600">Udemy</p>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/logo.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
-                            <p class="text-gray-600">Udemy</p>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/logo.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
-                            <p class="text-gray-600">Udemy</p>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/logo.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Full Stack Web Development</h3>
-                            <p class="text-gray-600">Udemy</p>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center cursor-pointer"
+                            onclick="openModal('cert2')">
+                            <div class="relative h-64 bg-white rounded border border-gray-300 overflow-hidden">
+                                <embed src="{% static 'pdf/DATABRIC SARTIFICATE_SCALABLE SYSTEM.pdf' %}" type="application/pdf"
+                                    class="w-full h-full object-contain" style="pointer-events: none;">
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 hover:bg-opacity-30 transition rounded">
+                                    <span
+                                        class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Click
+                                        to View Full PDF</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mt-2">DATABRICS</h3>
+                            <p class="text-gray-600">SCALABLE SYSTEM</p>
                         </div>
                     </div>
 
-                    <!-- Slide 3 -->
+                    <!-- Slide 3 : PDF Embedded -->
                     <div class="min-w-full md:min-w-[33.33%] p-4">
-                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
-                            <img src="{% static 'images/cert3.png' %}" class="w-full h-48 object-cover rounded mb-4">
-                            <h3 class="font-semibold text-lg">Hackathon Participation</h3>
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center cursor-pointer"
+                            onclick="openModal('cert3')">
+                            <div class="relative h-64 bg-white rounded border border-gray-300 overflow-hidden">
+                                <embed src="{% static 'pdf/hackathon_certificate.pdf' %}" type="application/pdf"
+                                    class="w-full h-full object-contain" style="pointer-events: none;">
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 hover:bg-opacity-30 transition rounded">
+                                    <span
+                                        class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Click
+                                        to View Full PDF</span>
+                                </div>
+                            </div>
+                            <h3 class="font-semibold text-lg mt-2">Hackathon Participation</h3>
                             <p class="text-gray-600">College Event</p>
                         </div>
                     </div>
 
-                </div>
 
-                <!-- Buttons -->
+                   
+                    
+                   
+                <!-- Slider Buttons -->
                 <button onclick="prevCert()"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full">
+                    class="absolute left-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition z-10">
                     ‹
                 </button>
 
                 <button onclick="nextCert()"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full">
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition z-10">
                     ›
                 </button>
 
@@ -396,9 +450,24 @@
         </div>
     </section>
 
-
-
-
+    <!-- ===== LIGHTBOX / MODAL for full PDF view ===== -->
+    <div id="pdfModal"
+        class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-300">
+        <div class="bg-white rounded-xl max-w-5xl w-full mx-4 p-4 relative shadow-2xl" style="max-height: 95vh;">
+            <!-- Close button -->
+            <button onclick="closeModal()"
+                class="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold z-10 shadow-lg">
+                &times;
+            </button>
+            <!-- PDF preview container -->
+            <div id="pdfPreviewContainer"
+                class="w-full h-[80vh] overflow-auto flex items-center justify-center bg-gray-100 rounded-lg">
+                <embed id="pdfEmbed" src="" type="application/pdf" class="w-full h-full rounded-lg"
+                    style="min-height: 600px;">
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-2">Click outside or press Esc to close</p>
+        </div>
+    </div>
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -461,9 +530,9 @@
 
                     <!-- B.Tech -->
                     <div class="border-l-4 border-blue-500 pl-6 py-2">
-                        <h4 class="font-medium">2025 - Present</h4>
+                        <h4 class="font-medium">2026 - Present</h4>
                         <p class="text-gray-600">
-                            3rd Year Computer Science Student at REC College – Building a strong foundation in
+                            Final Year Computer Science Student at REC College – Building a strong foundation in
                             technology and programming
                         </p>
                     </div>
@@ -796,7 +865,7 @@
                 <p class="text-gray-500 text-sm">
                     © 2025 Bishal Parida. Made with
                     <i data-feather="heart" class="w-4 h-4 inline text-red-500"></i>
-                    using Django & Tailwind CSS
+                    
                 </p>
 
             </div>
@@ -889,6 +958,108 @@
         setInterval(() => {
             nextCert();
         }, 3000);
+
+        (function () {
+            // ---------- CERTIFICATION SLIDER ----------
+            let certIndex = 0;
+            const certSlider = document.getElementById("certSlider");
+            const totalSlides = document.querySelectorAll("#certSlider > div").length;
+            const visibleSlides = window.innerWidth >= 768 ? 3 : 1;
+
+            function showCertSlide() {
+                if (!certSlider) return;
+                const maxIndex = Math.max(0, totalSlides - visibleSlides);
+                if (certIndex > maxIndex) certIndex = maxIndex;
+                if (certIndex < 0) certIndex = 0;
+                const offset = certIndex * (100 / visibleSlides);
+                certSlider.style.transform = `translateX(-${offset}%)`;
+            }
+
+            window.nextCert = function () {
+                const maxIndex = Math.max(0, totalSlides - visibleSlides);
+                if (certIndex < maxIndex) {
+                    certIndex++;
+                } else {
+                    certIndex = 0;
+                }
+                showCertSlide();
+            };
+
+            window.prevCert = function () {
+                const maxIndex = Math.max(0, totalSlides - visibleSlides);
+                if (certIndex > 0) {
+                    certIndex--;
+                } else {
+                    certIndex = maxIndex;
+                }
+                showCertSlide();
+            };
+
+            showCertSlide();
+
+            // Auto slide every 4 seconds
+            setInterval(() => {
+                window.nextCert();
+            }, 4000);
+
+            // ---------- PDF MODAL ----------
+            const modal = document.getElementById("pdfModal");
+            const pdfEmbed = document.getElementById("pdfEmbed");
+
+            // Mapping certificate IDs to actual PDF URLs (from pdf folder)
+            const pdfMap = {
+                'cert1': "{% static 'pdf/python_certificate.pdf' %}",
+                'cert2': "{% static 'pdf/fullstack_certificate.pdf' %}",
+                'cert3': "{% static 'pdf/hackathon_certificate.pdf' %}",
+                'cert4': "{% static 'pdf/django_certificate.pdf' %}",
+                'cert5': "{% static 'pdf/javascript_certificate.pdf' %}",
+                'cert6': "{% static 'pdf/cloud_certificate.pdf' %}"
+            };
+
+            window.openModal = function (certId) {
+                const pdfUrl = pdfMap[certId] || "{% static 'pdf/default.pdf' %}";
+                pdfEmbed.src = pdfUrl;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeModal = function () {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                pdfEmbed.src = ''; // stop loading
+                document.body.style.overflow = '';
+            };
+
+            // Close modal on background click
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    window.closeModal();
+                }
+            });
+
+            // Close on ESC key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    window.closeModal();
+                }
+            });
+
+            // Recalculate slider on window resize
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    showCertSlide();
+                }, 200);
+            });
+
+            // Feather icons replacement
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+
+        })();
     </script>
 
 </body>
